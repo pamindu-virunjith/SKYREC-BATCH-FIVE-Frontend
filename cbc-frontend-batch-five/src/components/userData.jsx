@@ -4,7 +4,7 @@ function UserData() {
   return (
     <div>
         <h1>Pamindu Virunjith</h1>
-        <button>Logout</button>
+        <button className='bg-amber-300 p-2'>Logout</button>
     </div>
   )
 }
