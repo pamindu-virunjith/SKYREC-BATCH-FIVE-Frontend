@@ -21,8 +21,7 @@ function Admin() {
                     <Route path="/products" element={<h1>Products Page</h1>}/>
                     <Route path="/sales" element={<h1>Sales Page</h1>}/>
                     <Route path="/analitics" element={<h1>Analitics Page</h1>}/>
-                    <Route path="/*" element= {<h1 className='flex justify-center items-center text-red-600 text-[70px] w-full pt-20'> 404 Not Found</h1>}/>
-
+                    
                 </Routes>
             </div>
         </div>
