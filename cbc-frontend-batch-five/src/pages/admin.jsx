@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
+import AdminProductsPage from './admin/adminProductsPage'
+import AdminHomePage from './admin/adminHomePage'
 
 function Admin() {
   return (
@@ -17,8 +19,8 @@ function Admin() {
             </div>
             <div className='w-[calc(100%-300px)] h-screen bg-amber-100'>
                 <Routes path="/*">
-                    <Route path="/users"element={<h1>Admin Home page</h1>}/>
-                    <Route path="/products" element={<h1>Products Page</h1>}/>
+                    <Route path="/users"element={<AdminHomePage/>}/>
+                    <Route path="/products" element={<AdminProductsPage/>}/>
                     <Route path="/sales" element={<h1>Sales Page</h1>}/>
                     <Route path="/analitics" element={<h1>Analitics Page</h1>}/>
                     

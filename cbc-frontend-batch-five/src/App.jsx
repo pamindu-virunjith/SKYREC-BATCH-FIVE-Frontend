@@ -4,10 +4,11 @@ import Header from './components/header'
 import ProductCard from './components/productCard'
 import Login from './pages/login'
 import Home from './pages/home'
-import SignUp from './pages/signup'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Admin from './pages/admin'
 import TestPage from './pages/TestPage'
+import { Toaster } from 'react-hot-toast'
+import Register from './pages/register'
 
 
 function App() {
@@ -16,12 +17,13 @@ function App() {
   return (
     <BrowserRouter>
       <>
+      <Toaster position='top-right'/>
 
       {/* <Header/> */}
       <Routes path ="/*">
         <Route path='/' element={<Home/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/signup" element={<SignUp/>}/>
+        <Route path="/register" element={<Register/>}/>
         <Route path ="/admin/*" element={<Admin/>}/>
         <Route path ="/test" element={<TestPage/>}/>
         <Route path="/*" element= {<h1 className='flex justify-center items-center text-red-600 text-[70px] w-full pt-20'> 404 Not Found</h1>}/>
