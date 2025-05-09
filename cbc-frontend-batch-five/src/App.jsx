@@ -53,7 +53,3 @@ function App() {
 }
 
 export default App
-
-
-//https://ryvrnpxseufuzodcmeva.supabase.co
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5dnJucHhzZXVmdXpvZGNtZXZhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY2ODEwODksImV4cCI6MjA2MjI1NzA4OX0._HShLh6oyUlgqr3mFN_iNoUhTwFK614ikT-XZLdcHOM
