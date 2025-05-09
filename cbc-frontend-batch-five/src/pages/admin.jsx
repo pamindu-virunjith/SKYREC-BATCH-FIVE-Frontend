@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
 import AdminProductsPage from './admin/adminProductsPage'
 import AdminHomePage from './admin/adminHomePage'
+import AddProductPage from './admin/addProductPage'
 
 function Admin() {
   return (
@@ -23,6 +24,7 @@ function Admin() {
                     <Route path="/products" element={<AdminProductsPage/>}/>
                     <Route path="/sales" element={<h1>Sales Page</h1>}/>
                     <Route path="/analitics" element={<h1>Analitics Page</h1>}/>
+                    <Route path="/add-product" element={<AddProductPage/>}/>
                     
                 </Routes>
             </div>

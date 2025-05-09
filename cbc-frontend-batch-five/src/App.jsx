@@ -6,7 +6,6 @@ import Login from './pages/login'
 import Home from './pages/home'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Admin from './pages/admin'
-import TestPage from './pages/TestPage'
 import { Toaster } from 'react-hot-toast'
 import Register from './pages/register'
 
@@ -25,7 +24,7 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path ="/admin/*" element={<Admin/>}/>
-        <Route path ="/test" element={<TestPage/>}/>
+        {/* <Route path ="/test" element={<TestPage/>}/> */}
         <Route path="/*" element= {<h1 className='flex justify-center items-center text-red-600 text-[70px] w-full pt-20'> 404 Not Found</h1>}/>
       </Routes>
 
@@ -54,3 +53,7 @@ function App() {
 }
 
 export default App
+
+
+//https://ryvrnpxseufuzodcmeva.supabase.co
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5dnJucHhzZXVmdXpvZGNtZXZhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY2ODEwODksImV4cCI6MjA2MjI1NzA4OX0._HShLh6oyUlgqr3mFN_iNoUhTwFK614ikT-XZLdcHOM
