@@ -3,6 +3,8 @@ import { Link, Route, Routes } from 'react-router-dom'
 import AdminProductsPage from './admin/adminProductsPage'
 import AdminHomePage from './admin/adminHomePage'
 import AddProductPage from './admin/addProductPage'
+import EditProductPage from './admin/editProductPage'
+
 
 function Admin() {
   return (
@@ -25,7 +27,7 @@ function Admin() {
                     <Route path="/sales" element={<h1>Sales Page</h1>}/>
                     <Route path="/analitics" element={<h1>Analitics Page</h1>}/>
                     <Route path="/add-product" element={<AddProductPage/>}/>
-                    
+                    <Route path ="/edit-product" element={<EditProductPage/>}/>
                 </Routes>
             </div>
         </div>

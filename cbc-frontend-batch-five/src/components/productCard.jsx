@@ -1,22 +1,62 @@
 import React from 'react';
 
 function ProductCard(props) {
-  return (
-    <div className="w-72 bg-white shadow-md rounded-xl p-4 text-center transition-transform hover:-translate-y-1">
-  <img className="w-full h-48 object-cover rounded-md mb-4" src={props.img} alt="Laptop" />
-  <h1 className="text-lg font-semibold text-gray-800 mb-2">{props.name}</h1>
-  <p className="text-sm text-gray-600 mb-3">{props.description}</p>
-  <h2 className="text-base text-blue-600 font-bold mb-4">Price: {props.price}</h2>
-  <div className="flex justify-center gap-2">
-    <button className="bg-yellow-400 text-black py-2 px-4 rounded hover:bg-yellow-300 hover: transition-colors">
-      Add to Cart
-    </button>
-    <button className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500 transition-colors">
-      Buy Now
-    </button>
-  </div>
-</div>
+  const product = props.pro;
 
+  return (
+    <div className="w-[300px] h-[400px] bg-white shadow-lg m-[15px] rounded-[12px] flex flex-col justify-between hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+      
+      {/* Image Section – no padding */}
+      <div className="h-[180px] bg-gray-100 flex justify-center items-center">
+        {product.images && product.images.length > 0 ? (
+          <img src={product.images[0]} alt={product.name} className="h-full object-contain" />
+        ) : (
+          <span className="text-gray-400">No Image</span>
+        )}
+      </div>
+
+      {/* Content Section */}
+      <div className="p-4 flex flex-col justify-between flex-grow">
+        {/* Product Info */}
+        <div>
+          <h2 className="text-lg font-semibold text-gray-800 truncate">{product.name}</h2>
+          <p className="text-sm text-gray-600 mt-1 line-clamp-3">{product.description}</p>
+        </div>
+
+        {/* Price & Stock Info */}
+        <div className="mt-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <span className="text-sm text-gray-400 line-through mr-2">
+                Rs. {product.labledPrice}
+              </span>
+              <span className="text-lg font-bold text-red-600">
+                Rs. {product.price}
+              </span>
+            </div>
+            <div>
+              {product.isAvailable && product.stock > 0 ? (
+                <span className="text-sm text-green-600 font-medium">In Stock</span>
+              ) : (
+                <span className="text-sm text-red-600 font-medium">Out of Stock</span>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Buy Now Button */}
+        <button
+          disabled={!product.isAvailable || product.stock <= 0}
+          className={`mt-4 w-full py-2 rounded-[8px] font-semibold text-white transition-colors duration-300 ${
+            product.isAvailable && product.stock > 0
+              ? 'bg-blue-600 hover:bg-blue-700'
+              : 'bg-gray-400 cursor-not-allowed'
+          }`}
+        >
+          Buy Now
+        </button>
+      </div>
+    </div>
   );
 }
 

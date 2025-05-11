@@ -9,7 +9,6 @@ import Admin from './pages/admin'
 import { Toaster } from 'react-hot-toast'
 import Register from './pages/register'
 
-
 function App() {
   const [count, setCount] = useState(0)
 
@@ -20,12 +19,11 @@ function App() {
 
       {/* <Header/> */}
       <Routes path ="/*">
-        <Route path='/' element={<Home/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path ="/admin/*" element={<Admin/>}/>
         {/* <Route path ="/test" element={<TestPage/>}/> */}
-        <Route path="/*" element= {<h1 className='flex justify-center items-center text-red-600 text-[70px] w-full pt-20'> 404 Not Found</h1>}/>
+        <Route path="/*" element= {<Home/>}/>
       </Routes>
 
 
