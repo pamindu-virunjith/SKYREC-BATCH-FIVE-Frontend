@@ -18,8 +18,15 @@ function ProductPage() {
     },[isLoading])
 
   return (
-    <div className='w-full h-full flex flex-wrap justify-center items-center'>
+    <div className='w-full h-[calc(100vh-80px)] flex flex-wrap justify-center items-center'>
        {
+
+        
+            isLoading ?
+            <div className='flex justify-center items-center  w-full h-full'>
+                <div className='h-[100px] w-[100px]  border-8 rounded-full border-t-gray-400 border-gray-300 animate-spin'></div>
+            </div> :
+
         product.map((pro)=>{
             return(
                 <ProductCard key={pro.productId} pro={pro}/>
