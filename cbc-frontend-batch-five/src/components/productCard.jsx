@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function ProductCard(props) {
   const product = props.pro;
 
   return (
-    <div className="w-[300px] h-[400px] bg-white shadow-lg m-[15px] rounded-[12px] flex flex-col justify-between hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+    <Link to={'/overview/'+product.productId} className="w-[300px] h-[400px] bg-white shadow-lg m-[15px] rounded-[12px] flex flex-col justify-between hover:shadow-xl transition-shadow duration-300 overflow-hidden">
       
       {/* Image Section – no padding */}
       <div className="h-[180px] bg-gray-100 flex justify-center items-center">
@@ -56,7 +57,7 @@ function ProductCard(props) {
           Buy Now
         </button>
       </div>
-    </div>
+    </Link>
   );
 }
 

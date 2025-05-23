@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../components/header'
 import { Route, Routes } from 'react-router-dom'
 import ProductPage from './client/productPage.jsx'
+import ProductOverviewPage from './client/productOverview.jsx'
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
           <Route path='/products' element={<ProductPage/>}/>
           <Route path='/about' element={<h1>About</h1>}/>
           <Route path='/contact' element={<h1>Contact</h1>}/>
+          <Route path='/overview/:id' element={<ProductOverviewPage/>}/>
           <Route path='/*' element={<h1>404 Not Found</h1>}/>
         </Routes>
       </div>
