@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function ProductCard(props) {
+
   const product = props.pro;
 
   return (
@@ -53,6 +54,7 @@ function ProductCard(props) {
               ? 'bg-blue-600 hover:bg-blue-700'
               : 'bg-gray-400 cursor-not-allowed'
           }`}
+         
         >
           Buy Now
         </button>
