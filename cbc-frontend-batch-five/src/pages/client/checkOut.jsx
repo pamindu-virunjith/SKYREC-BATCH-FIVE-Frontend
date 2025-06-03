@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import { BiTrash } from 'react-icons/bi';
 import { useLocation } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import axios from 'axios';
 
 function CheckOutPage() {
     const location = useLocation()
@@ -31,6 +33,39 @@ function CheckOutPage() {
             const newCart = [...cart];
             newCart[index].qty = newQty
             setCart(newCart)
+        }
+    }
+
+    async function placeOrder(){
+        const token = localStorage.getItem("token")
+        if(!token){
+            toast.error("Please login first to place order")
+            return
+        }
+
+        const orderInformation = {
+            products: []
+        }
+
+        for(let i= 0; cart.length>i; i++ ){
+             const item ={
+                productId: cart[i].productId,
+                qty: cart[i].qty
+            }
+            orderInformation.products[i] = item
+        }
+
+        try{
+            const res = await axios.post(import.meta.env.VITE_BACKEND_URL + "/api/orders",orderInformation,{
+            headers:{
+                Authorization: "Bearer " + token
+            }})
+            toast.success("Order palced successfully")
+            console.log(res.data)
+        }catch(err){
+            console.log(err)
+            toast.error("Error placing order")
+            return
         }
     }
 
@@ -73,7 +108,11 @@ function CheckOutPage() {
                             }><BiTrash/></button>
                             <div className='w-full  h-[80px] fixed bottom-0 left-0 flex items-center justify-center shadow-2xl'>
                                 <h1 className='text-2xl font-semibold tracking-wide'>Total :<span className='text-accent pl-3'>{getTotal().toFixed(2)}</span></h1>
-                                <button className='bg-accent text-primary py-2 px-3  rounded-[15px] text-xl ml-9 font-bold cursor-pointer hover:bg-seondary'>Place Order</button>
+                                <button className='bg-accent text-primary py-2 px-3  rounded-[15px] text-xl ml-9 font-bold cursor-pointer hover:bg-seondary' onClick={
+                                    ()=>{
+                                        placeOrder()
+                                    }
+                                }>Place Order</button>
                             </div>
                         </div>
                     )
