@@ -44,13 +44,15 @@ function CheckOutPage() {
         }
 
         const orderInformation = {
-            products: []
+            products: [],
+            phone: "0701338312",
+            address: "12,Main Street, Colombo",
         }
 
         for(let i= 0; cart.length>i; i++ ){
              const item ={
                 productId: cart[i].productId,
-                qty: cart[i].qty
+                quantity: cart[i].qty
             }
             orderInformation.products[i] = item
         }
