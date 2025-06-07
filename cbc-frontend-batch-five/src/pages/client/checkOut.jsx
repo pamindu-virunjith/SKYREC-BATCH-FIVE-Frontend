@@ -10,6 +10,9 @@ function CheckOutPage() {
     // console.log(location.state.cart)
 
     const [cart,setCart] = useState(location.state?.cart || []);
+    const [phoneNumber,setPhoneNumber] = useState("")
+    const [address, setAddress] = useState("")
+
 
     function removeFromCart(index){
         const newCart = cart.filter((item, i)=> i !== index )
@@ -43,10 +46,11 @@ function CheckOutPage() {
             return
         }
 
+        
         const orderInformation = {
             products: [],
-            phone: "0701338312",
-            address: "12,Main Street, Colombo",
+            phone: phoneNumber,
+            address: address,
         }
 
         for(let i= 0; cart.length>i; i++ ){
@@ -62,17 +66,24 @@ function CheckOutPage() {
             headers:{
                 Authorization: "Bearer " + token
             }})
+
+            
+
             toast.success("Order palced successfully")
             console.log(res.data)
-        }catch(err){
-            console.log(err)
+        }catch(e){
+            if(phoneNumber == "" || address == ""){
+                toast.error("Insert Phone Number and address to Place order")
+                return
+            } 
+            console.log(e)//response.data.error.message
             toast.error("Error placing order")
             return
         }
     }
 
   return (
-    <div className='w-full h-[calc(100%-80px)] flex flex-col items-center pt-4  overflow-y-auto'>
+    <div className='w-full h-[calc(100%-150px)] flex flex-col items-center pt-4  overflow-y-auto'>
         {
             cart.map(
                 (item,index)=>{
@@ -108,13 +119,19 @@ function CheckOutPage() {
                                     removeFromCart(index)
                                 }
                             }><BiTrash/></button>
-                            <div className='w-full  h-[80px] fixed bottom-0 left-0 flex items-center justify-center shadow-2xl'>
-                                <h1 className='text-2xl font-semibold tracking-wide'>Total :<span className='text-accent pl-3'>{getTotal().toFixed(2)}</span></h1>
-                                <button className='bg-accent text-primary py-2 px-3  rounded-[15px] text-xl ml-9 font-bold cursor-pointer hover:bg-seondary' onClick={
-                                    ()=>{
-                                        placeOrder()
-                                    }
-                                }>Place Order</button>
+                            <div className='w-full  h-[150px] fixed bottom-0 left-0 flex items-center justify-evenly shadow-2xl'>
+                                <div className='flex flex-col'>
+                                    <input type="text" placeholder='Phone Number' className='border p-2 mb-3 rounded-[5px] w-[300px] border-gray-300 focus:outline-none placeholder-gray-400' onChange={(e)=>{setPhoneNumber(e.target.value)}} value={phoneNumber}/>
+                                    <input type="text" placeholder='Address' className='border p-2 rounded-[5px] border-gray-300 focus:outline-none placeholder-gray-400' onChange={(e)=>{setAddress(e.target.value)}} value={address}/>
+                                </div>
+                                <div className='flex flex-col items-center justify-center'>
+                                    <h1 className='text-3xl font-semibold tracking-wide'>Total :<span className='text-accent pl-3'>{getTotal().toFixed(2)}</span></h1>
+                                    <button className='bg-accent text-primary py-2 px-3 mt-5 rounded-[15px] text-xl  font-bold cursor-pointer hover:bg-seondary' onClick={
+                                        ()=>{
+                                            placeOrder()
+                                        }
+                                    }>Place Order</button>
+                                </div>
                             </div>
                         </div>
                     )
