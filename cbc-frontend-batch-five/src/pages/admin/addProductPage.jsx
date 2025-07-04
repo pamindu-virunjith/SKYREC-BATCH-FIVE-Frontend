@@ -69,7 +69,7 @@ function AddProductPage() {
         navigate("/admin/products")
 
       }).catch((e)=>{
-        toast.error(e.response.data.message + "WTF")
+        toast.error(e.response.data.message + " Please try again")
       })
 
     }catch(e){
