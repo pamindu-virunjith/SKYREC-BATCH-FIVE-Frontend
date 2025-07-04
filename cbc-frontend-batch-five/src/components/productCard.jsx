@@ -49,7 +49,7 @@ function ProductCard(props) {
         {/* Buy Now Button */}
         <button
           disabled={!product.isAvailable || product.stock <= 0}
-          className={`mt-4 w-full py-2 rounded-[8px] font-semibold text-white transition-colors duration-300 ${
+          className={`mt-4 w-full py-2 rounded-[8px] font-semibold text-white transition-colors cursor-pointer duration-300 ${
             product.isAvailable && product.stock > 0
               ? 'bg-blue-600 hover:bg-blue-700'
               : 'bg-gray-400 cursor-not-allowed'
