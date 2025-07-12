@@ -58,11 +58,11 @@ function AdminOrdersPage() {
     switch (status) {
       case 'pending':
         return 'text-yellow-600 font-semibold'
-      case 'shipped':
-        return 'text-blue-600 font-semibold'
-      case 'delivered':
+      case 'Completed':
         return 'text-green-600 font-semibold'
-      case 'cancelled':
+      case 'Returned':
+        return 'text-blue-600 font-semibold'
+      case 'Cancelled':
         return 'text-red-600 font-semibold'
       default:
         return 'text-gray-700'
@@ -108,14 +108,48 @@ function AdminOrdersPage() {
                     <span className={`px-2 py-1 rounded-full text-white text-xs font-semibold ${
                       activeOrder.status === 'pending'
                         ? 'bg-yellow-500'
-                        : activeOrder.status === 'shipped'
-                        ? 'bg-blue-500'
-                        : activeOrder.status === 'delivered'
+                        : activeOrder.status === 'Completed'
                         ? 'bg-green-500'
-                        : 'bg-red-500'
+                        : activeOrder.status === 'Cancelled'
+                        ? 'bg-red-500'
+                        : activeOrder.status === 'Returned'
+                        ? 'bg-blue-500'
+                        : 'bg-'
                     }`}>
                       {activeOrder.status}
                     </span>
+
+                    <select 
+                      onChange={async (e)=>{
+                        const updatedValue = e.target.value
+                        try{
+                          const token = localStorage.getItem("token")
+                          await axios.put(import.meta.env.VITE_BACKEND_URL+ "/api/orders/"+ activeOrder.orderId + "/" + updatedValue,{},
+                            {
+                              headers:{
+                                Authorization: "Bearer " + token,
+                              }
+                            }
+                           ) 
+                
+                           setIsLoading(true)
+                           const updatedOrder ={...activeOrder}
+                           updatedOrder.status = updatedValue
+                           setActiveOrder(updatedOrder)
+
+                        }catch(e){
+                          toast.error("Error updating order status")
+                          console.log(e)
+                        }
+                        }}>
+
+                      <option value="pending">Pending</option>
+                      <option value="Completed">Completed</option>
+                      <option value="Cancelled">Cancelled</option>
+                      <option value="Returned">Returned</option>
+                      <option selected disabled>Change Status</option>
+                    </select>
+
                   </div>
                   <div><strong>💰 Labeled Total:</strong> Rs. {activeOrder.labeledTotal.toLocaleString()}</div>
                   <div><strong>💸 Total Paid:</strong> Rs. {activeOrder.total.toLocaleString()}</div>

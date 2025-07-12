@@ -1,4 +1,4 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import './App.css'
 import Header from './components/header'
 import ProductCard from './components/productCard'
@@ -8,9 +8,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Admin from './pages/admin'
 import { Toaster } from 'react-hot-toast'
 import Register from './pages/register'
+import TestPage from './pages/TestPage'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <BrowserRouter>
