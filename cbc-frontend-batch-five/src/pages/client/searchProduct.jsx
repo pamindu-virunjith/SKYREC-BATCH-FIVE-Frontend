@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, {useState } from 'react'
+import {useState } from 'react'
 import ProductCard from '../../components/productCard'
 import Loading from '../../components/loading'
 import toast from 'react-hot-toast'

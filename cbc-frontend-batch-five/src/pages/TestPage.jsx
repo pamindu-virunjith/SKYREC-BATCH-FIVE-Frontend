@@ -52,9 +52,6 @@
 
 
 
-
-import React from 'react'
-
 function TestPage() {
   return (
     <div className='md:bg-accent bg-seondary w-full h-screen'>Hii my name is pamindu</div>

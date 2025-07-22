@@ -1,4 +1,3 @@
-import React from 'react'
 import { supabase } from './superbaseClient.js'
 
 function MediaUplad(file) {

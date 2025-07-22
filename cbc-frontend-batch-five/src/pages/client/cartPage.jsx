@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { addToCart, getcart, getTotal, removeFromCart } from '../../utils/cart.js'
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import { BiTrash } from 'react-icons/bi';

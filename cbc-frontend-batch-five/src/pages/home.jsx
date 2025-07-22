@@ -1,4 +1,3 @@
-import React from 'react'
 import Header from '../components/header'
 import { Route, Routes } from 'react-router-dom'
 import ProductPage from './client/productPage.jsx'
