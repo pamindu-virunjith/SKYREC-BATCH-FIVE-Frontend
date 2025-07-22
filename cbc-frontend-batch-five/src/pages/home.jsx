@@ -5,6 +5,7 @@ import ProductPage from './client/productPage.jsx'
 import ProductOverviewPage from './client/productOverview.jsx'
 import CartPage from './client/cartPage.jsx'
 import CheckOutPage from './client/checkout.jsx'
+import SearchProductPage from './client/searchProduct.jsx'
 
 function Home() {
   return (
@@ -20,6 +21,7 @@ function Home() {
           <Route path='/checkout' element={<CheckOutPage/>}/>
           <Route path='/overview/:id' element={<ProductOverviewPage/>}/>
           <Route path='/*' element={<h1>404 Not Found</h1>}/>
+          <Route path='/search' element={<SearchProductPage/>}/>
         </Routes>
       </div>
     </div>

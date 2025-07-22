@@ -46,6 +46,7 @@ export default function Header(){
                 <Link to="/products">Products</Link>
                 <Link to="/about">About</Link>
                 <Link to="/contact">Contact</Link>
+                <Link to="/search">Search</Link>
             </div>
             <div className="w-[80px] h-[80px] flex justify-center items-center">
                 <Link to="/cart" onClick={()=>sideDrawerOpened(false)}>
