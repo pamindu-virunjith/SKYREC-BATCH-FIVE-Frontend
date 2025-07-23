@@ -44,7 +44,7 @@ function AddProductPage() {
 
     try{
 
-      const imageUrls = Promise.all(promisesArray)
+      const imageUrls = await Promise.all(promisesArray)
       console.log(imageUrls)
 
       const altNameArray = altName.split(",")
