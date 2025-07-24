@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import ProductPage from './client/productPage.jsx'
 import ProductOverviewPage from './client/productOverview.jsx'
 import CartPage from './client/cartPage.jsx'
-import CheckOutPage from './client/checkout.jsx'
+import CheckOutPage from './client/checkOut.jsx'
 import SearchProductPage from './client/searchProduct.jsx'
 
 function Home() {
