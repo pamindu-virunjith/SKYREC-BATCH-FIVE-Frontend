@@ -19,7 +19,7 @@ const ContactPage = () => {
 
     setIsSending(true)
     
-    axios.post(import.meta.env.VITE_BACKEND_URL+"/api/users/sendEmail",{
+    axios.post(import.meta.env.VITE_BACKEND_URL+"/api/users/send-email",{
       name: name,
       email: email,
       subject: subject,
@@ -35,6 +35,7 @@ const ContactPage = () => {
     })
     .finally(()=>{
       setIsSending(false)
+      // console.log("isSending",isSending)
     })
   }
 
@@ -125,7 +126,7 @@ const ContactPage = () => {
                   </div>
                   
                  <div className="w-full text-center">
-                   <button type="submit" className={`text-center w-[50%] text-primary bg-accent p-2 font-bold rounded-lg focus:outline-none  ${isSending? "cursor-not-allowed bg-accent/5": "0 cursor-pointer"}`} disabled={isSending}>
+                   <button type="submit" className={`text-center w-[50%] text-primary bg-accent p-2 font-bold rounded-lg focus:outline-none  ${isSending? "cursor-not-allowed bg-accent/50": "cursor-pointer"}`} disabled={isSending}>
                     {isSending ? "Sending...":"Send Message"}
                   </button>
                  </div>
