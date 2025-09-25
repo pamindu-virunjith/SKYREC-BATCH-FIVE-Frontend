@@ -1,7 +1,7 @@
 function Loading() {
   return (
     <div className='w-full h-full flex justify-center items-center'>
-        <div className='animate-spin rounded-full border-4  border-t-accent border-seondary  h-16 w-16'></div>
+        <div className='h-[60px] w-[60px] md:h-[80px] md:w-[80px] border-5 md:border-7 border-t-gray-300 border-accent rounded-full animate-spin'></div>
     </div>
   )
 }

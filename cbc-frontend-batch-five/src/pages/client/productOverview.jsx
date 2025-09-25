@@ -17,7 +17,7 @@ function ProductOverviewPage() {
         ()=>{
             axios.get(import.meta.env.VITE_BACKEND_URL+"/api/products/"+productId).then(
             (response)=>{
-                console.log(response.data)
+                // console.log(response.data)
                 setProduct(response.data)
                 setState("success")
             }
@@ -76,6 +76,7 @@ function ProductOverviewPage() {
                                     addToCart(product,1)
                                     console.log("New Cart")
                                     console.log(getcart())
+                                    toast.success("Product added to cart")
                                 }}>Add to Cart</button>
                             <button className='w-[130px] md:w-[200px] h-[50px] m-4 cursor-pointer text-white bg-accent transition-all duration-300 md:text-[20px] font-semibold rounded-2xl hover:bg-accent/80 '  onClick={()=>{
                                     navigate("/checkout",{

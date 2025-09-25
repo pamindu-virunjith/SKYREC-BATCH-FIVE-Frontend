@@ -10,7 +10,7 @@ function ProductCard(props) {
       {/* Image Section – no padding */}
       <div className="h-[180px] bg-gray-100 flex justify-center items-center">
         {product.images && product.images.length > 0 ? (
-          <img src={product.images[0]} alt={product.name} className="h-full object-contain" />
+          <img src={product.images[0]} alt={product.name} className="h-full w-full object-cover" />
         ) : (
           <span className="text-gray-400">No Image</span>
         )}

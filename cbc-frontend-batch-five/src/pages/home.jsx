@@ -5,6 +5,10 @@ import ProductOverviewPage from './client/productOverview.jsx'
 import CartPage from './client/cartPage.jsx'
 import CheckOutPage from './client/checkOut.jsx'
 import SearchProductPage from './client/searchProduct.jsx'
+import HomePage from './client/homePage.jsx'
+import AboutPage from './client/aboutPage.jsx'
+import ContactPage from './client/contactPage.jsx'
+import NotFoundPage from './notFoundPage.jsx'
 
 function Home() {
   return (
@@ -12,14 +16,15 @@ function Home() {
       <Header/>
       <div className='w-full h-[calc(100vh-80px)] flex flex-col  items-center'>
         <Routes parth="/">
-          <Route path='/' element={<h1>Home</h1>}/>
+          <Route path='/' element={<HomePage/>}/>
+          <Route path='/home' element={<HomePage/>}/>
           <Route path='/products' element={<ProductPage/>}/>
-          <Route path='/about' element={<h1>About</h1>}/>
-          <Route path='/contact' element={<h1>Contact</h1>}/>
+          <Route path='/about' element={<AboutPage/>}/>
+          <Route path='/contact' element={<ContactPage/>}/>
           <Route path='/cart' element={<CartPage/>}/>
           <Route path='/checkout' element={<CheckOutPage/>}/>
           <Route path='/overview/:id' element={<ProductOverviewPage/>}/>
-          <Route path='/*' element={<h1>404 Not Found</h1>}/>
+          <Route path='/*' element={<NotFoundPage/>}/>
           <Route path='/search' element={<SearchProductPage/>}/>
         </Routes>
       </div>
