@@ -114,22 +114,22 @@ function AdminProductsPage() {
               {products.map((item, index) => (
                 <div 
                   key={index} 
-                  className='relative rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 bg-accent text-white transform hover:-translate-y-1'
+                  className='relative rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-seondary/30 transform hover:-translate-y-1'
                 >
                   {/* Top section */}
                   <div className='flex justify-between items-start mb-4'>
-                    <span className='bg-white/30 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-md'>
+                    <span className='bg-accent text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-md'>
                       #{index + 1}
                     </span>
                     <div className='flex gap-2'>
                       <button
                         onClick={() => deleteProduct(item.productId)}
-                        className='bg-white/30 hover:bg-white/40 text-red-500 hover:text-red-600 p-2 rounded-lg transition cursor-pointer'>
+                        className='bg-accent/50  hover:bg-seondary/40 text-red-500 hover:text-red-600 p-2 rounded-lg transition cursor-pointer'>
                         <FaTrash size={14} />
                       </button>
                       <button
                         onClick={() => navigate('/admin/edit-product', { state: item })}
-                        className='bg-white/30 hover:bg-white/40 text-green-600 hover:text-green-700 p-2 rounded-lg transition cursor-pointer'>
+                        className='bg-accent/50  hover:bg-seondary/40 text-green-600 hover:text-green-700 p-2 rounded-lg transition cursor-pointer'>
                         <FaEdit size={14} />
                       </button>
                     </div>
@@ -150,16 +150,16 @@ function AdminProductsPage() {
 
                   {/* Stats */}
                   <div className='grid grid-cols-3 gap-3 text-center'>
-                    <div className='bg-white/20 rounded-xl p-3'>
-                      <p className='text-xs text-white/70'>Labeled</p>
+                    <div className='bg-accent/50 rounded-xl p-3'>
+                      <p className='text-sm text-seondary/70'>Labeled</p>
                       <p className='font-bold text-seondary'>Rs. {item.labledPrice}</p>
                     </div>
-                    <div className='bg-white/30 rounded-xl p-3'>
-                      <p className='text-xs text-white/70'>Price</p>
+                    <div className='bg-accent/50 rounded-xl p-3'>
+                      <p className='text-sm text-seondary/70'>Price</p>
                       <p className='font-bold text-seondary'>Rs. {item.price}</p>
                     </div>
-                    <div className='bg-white/30 rounded-xl p-3'>
-                      <p className='text-xs text-white/70'>Stock</p>
+                    <div className='bg-accent/50 rounded-xl p-3'>
+                      <p className='text-sm text-seondary/70'>Stock</p>
                       <p className='font-bold text-seondary'>{item.stock}</p>
                     </div>
                   </div>

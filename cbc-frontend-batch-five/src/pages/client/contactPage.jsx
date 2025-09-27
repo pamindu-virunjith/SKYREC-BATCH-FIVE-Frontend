@@ -41,13 +41,13 @@ const ContactPage = () => {
 
 
   return (
-    <>
+    <div className="w-full  h-[calc(100vh-80px)]  overflow-y-auto">
         <div>
       <main className="py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold text-seondary mb-4">Contact Us</h1>
-            <p className="text-xl text-accent/50 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-accent/50 max-w-2xl mx-auto">
               We'd love to hear from you. Get in touch with our team.
             </p>
           </div>
@@ -208,7 +208,7 @@ const ContactPage = () => {
       </main>
     </div>
       <Footer/>
-    </>
+    </div>
   );
 };
 

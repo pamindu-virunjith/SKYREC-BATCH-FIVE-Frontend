@@ -191,7 +191,7 @@ function AdminOrdersPage() {
           </Modal>
 
           {/* Mobile Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:hidden">
             {orders.map((order, index) => (
               <div
                 key={index}
@@ -217,7 +217,7 @@ function AdminOrdersPage() {
           </div>
 
           {/* Desktop Table */}
-          <div className="overflow-x-auto hidden md:block">
+          <div className="overflow-x-auto hidden lg:block">
             <table className="w-full min-w-[800px] border border-gray-200 shadow-md rounded-xl overflow-hidden">
               <thead className="bg-accent text-primary">
                 <tr>

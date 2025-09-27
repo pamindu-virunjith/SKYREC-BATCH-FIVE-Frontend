@@ -2,7 +2,7 @@ import Footer from "../../components/footer";
 
 const AboutPage = () => {
   return (
-    <>
+    <div className="w-full  h-[calc(100vh-80px)]  overflow-y-auto">
     <div>
       <div className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -88,7 +88,7 @@ const AboutPage = () => {
       
     </div>
     <Footer />
-    </>
+    </div>
   );
 };
 

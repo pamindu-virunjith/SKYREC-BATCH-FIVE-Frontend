@@ -33,7 +33,7 @@ function HomePage() {
   ];
 
   return (
-    <>
+    <div className="w-full  h-[calc(100vh-80px)]  overflow-y-auto">
     <div className='bg-[linear-gradient(135deg,#393E46_0%,#866ff7_100%)] w-full md:min-h-[600px]'>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-3xl">
@@ -52,7 +52,7 @@ function HomePage() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <button className="flex sm:flex-row gap-1 items-center text-2xl font-bold text-accent group bg-seondary/40 p-4 rounded-2xl cursor-pointer " onClick={()=>navigate("/products")}>
+            <button className="flex sm:flex-row gap-1 w-[180px] md:w-auto items-center text-xl md:text-2xl font-bold text-accent group bg-seondary/40 p-4 rounded-2xl cursor-pointer " onClick={()=>navigate("/products")}>
               Shop Now
               <FaArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -131,7 +131,7 @@ function HomePage() {
       </div>
     </section>
     <Footer/>
-    </>
+    </div>
   )
 }
 

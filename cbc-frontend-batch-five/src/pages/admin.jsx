@@ -12,6 +12,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose, IoMdHome } from "react-icons/io";
 import { BiLogOut } from 'react-icons/bi'
 import NotFoundPage from './notFoundPage'
+import AdminReviewsPage from './admin/adminReviewsPage'
 
 function Admin() {
   const location = useLocation()
@@ -152,7 +153,7 @@ function Admin() {
               <Route path="/users" element={<AdminUsersPage />} />
               <Route path="/products" element={<AdminProductsPage />} />
               <Route path="/orders" element={<AdminOrdersPage />} />
-              <Route path="/reviews" element={<h1>Reviews Page</h1>} />
+              <Route path="/reviews" element={<AdminReviewsPage/>} />
               <Route path="/add-product" element={<AddProductPage />} />
               <Route path="/edit-product" element={<EditProductPage />} />
               <Route path='/*' element={<NotFoundPage/>}/>
