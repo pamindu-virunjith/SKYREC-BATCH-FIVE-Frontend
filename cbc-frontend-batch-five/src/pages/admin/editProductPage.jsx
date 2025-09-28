@@ -19,7 +19,7 @@ function EditProductPage() {
 
   const navigate = useNavigate()
 
-  console.log(location)
+  // console.log(location)
 
   function back(){
     navigate('/admin/products')
@@ -46,7 +46,7 @@ function EditProductPage() {
             imageUrls = await Promise.all(promisesArray)
         }
       
-      console.log(imageUrls)
+      // console.log(imageUrls)
 
       const altNameArray = altName.split(",")
 
@@ -80,20 +80,22 @@ function EditProductPage() {
   }
 
   return (
-    <div className='w-full h-full flex flex-col justify-center items-center bg-amber-250'>
-        <h1>Edit Products</h1>
-        <input type="text" placeholder='Product Id' disabled className='border rounded-[5px] p-[5px] m-[5px] w-[250px]' value={productId} onChange={(e)=>{setProductId(e.target.value)}}/>
-        <input type="text" placeholder='Product Name'  className='border rounded-[5px] p-[5px] m-[5px] w-[250px]' value={productName} onChange={(e)=>{setProductName(e.target.value)}}/>
-        <input type="text" placeholder='Alternative Names (ex:pro1,pro2)' className='border rounded-[5px] p-[5px] m-[5px] w-[250px]' value={altName} onChange={(e)=>{setAltName(e.target.value)}}/>
-        <input type="text" placeholder='Description' className='border rounded-[5px] p-[5px] m-[5px] h-[50px] w-[250px]' value={description} onChange={(e)=>{setDescription(e.target.value)}}/>
-        <input type="file" multiple className='border rounded-[5px] p-[5px] m-[5px] w-[250px]' onChange={(e)=>{setImage(e.target.files)}}/>
-        <input type="number" placeholder='Labled Price' className='border rounded-[5px] p-[5px] m-[5px] w-[250px]' value={labledPrice} onChange={(e)=>{setLabledPrice(e.target.value)}}/>
-        <input type="number" placeholder='Price' className='border rounded-[5px] p-[5px] m-[5px] w-[250px]' value={price} onChange={(e)=>{setPrice(e.target.value)}}/>
-        <input type="number" placeholder='Stock' className='border rounded-[5px] p-[5px] m-[5px] w-[250px]' value={stock} onChange={(e)=>{setStock(e.target.value)}}/>
-        <div>
-          <button className='border p-[7px] m-[10px] rounded-[5px] bg-red-600 font-bold text-white cursor-pointer' onClick={back}>Cancel</button>
-          <button className='border p-[7px] m-[10px] rounded-[5px] bg-green-600 font-bold text-white cursor-pointer' onClick={update}>Update Product</button>
+    <div className='w-full h-full flex flex-col justify-center items-center'>
+      <div className='w-[350px] h-[500px] flex flex-col bg-primary justify-center items-center rounded-xl'>
+        <h1 className='font-bold mb-5 text-3xl font-mono text-seondary'>Edit Products</h1>
+        <input type="text" placeholder='Product Id' disabled className='border border-gray-400 rounded-[3px] p-[5px] m-[5px] w-[300px] focus:outline-accent' value={productId} onChange={(e)=>{setProductId(e.target.value)}}/>
+        <input type="text" placeholder='Product Name'  className='border border-gray-400 rounded-[3px] p-[5px] m-[5px] w-[300px] focus:outline-accent' value={productName} onChange={(e)=>{setProductName(e.target.value)}}/>
+        <input type="text" placeholder='Alternative Names (ex:pro1,pro2)' className='border border-gray-400 rounded-[3px] p-[5px] m-[5px] w-[300px] focus:outline-accent' value={altName} onChange={(e)=>{setAltName(e.target.value)}}/>
+        <input type="text" placeholder='Description' className='border border-gray-400 rounded-[3px] p-[5px] m-[5px] h-[50px] w-[300px] focus:outline-accent' value={description} onChange={(e)=>{setDescription(e.target.value)}}/>
+        <input type="file" multiple className='border border-gray-400 rounded-[3px] p-[5px] m-[5px] w-[300px] focus:outline-accent' onChange={(e)=>{setImage(e.target.files)}}/>
+        <input type="number" placeholder='Labled Price' className='border border-gray-400 rounded-[3px] p-[5px] m-[5px] w-[300px] focus:outline-accent' value={labledPrice} onChange={(e)=>{setLabledPrice(e.target.value)}}/>
+        <input type="number" placeholder='Price' className='border border-gray-400 rounded-[3px] p-[5px] m-[5px] w-[300px] focus:outline-accent' value={price} onChange={(e)=>{setPrice(e.target.value)}}/>
+        <input type="number" placeholder='Stock' className='border border-gray-400 rounded-[3px] p-[5px] m-[5px] w-[300px] focus:outline-accent' value={stock} onChange={(e)=>{setStock(e.target.value)}}/>
+        <div className='w-full flex justify-center items-center'>
+          <button className='w-[50%] p-3 mr-3 bg-gray-300 text-gray-700 font-bold mt-2 rounded-lg hover:bg-gray-400 transition-all duration-300 cursor-pointer focus:outline-none' onClick={back}>Cancel</button>
+          <button className='w-[50%] p-3 bg-accent text-white font-bold rounded-lg mt-2 hover:bg-[#7054f7] transition-all duration-300 cursor-pointer focus:outline-none' onClick={update}>Update Product</button>
         </div>
+      </div>
     </div>
   )
 }

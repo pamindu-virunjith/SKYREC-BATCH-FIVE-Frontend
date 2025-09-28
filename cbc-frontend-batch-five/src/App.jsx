@@ -28,6 +28,7 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path ="/admin/*" element={<Admin/>}/>
           {/* <Route path ="/test" element={<TestPage/>}/> */}
+          {/* <Route path='/home' element={<Home/>}/> */}
           <Route path="/*" element= {<Home/>}/>
         </Routes>
 

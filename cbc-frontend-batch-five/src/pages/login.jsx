@@ -2,8 +2,8 @@ import { useState } from 'react'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
-import { GrGoogle } from 'react-icons/gr'
 import { useGoogleLogin } from '@react-oauth/google'
+import { FcGoogle } from 'react-icons/fc'
 
 function Login() {
   const [userName,setUserName] = useState("")
@@ -68,18 +68,20 @@ function Login() {
   }
 
   return (
-    <div className=' w-full h-screen bg-[url("/login.jpg")] bg-center bg-cover flex justify-center items-center'>
-      <div className=" w-[50%] h-full"></div>
-      <div className="w-[50%] h-full flex justify-center items-center">
-        <div className='w-[500px] h-[600px] backdrop-blur-sm rounded-[30px] shadow-xl flex flex-col justify-center items-center'>
-          <input onChange={(e)=>{setUserName(e.target.value)}} value={userName} type="text" className='border-1 rounded-[10px] text-[18px] m-[10px] p-[5px] focus:outline-none' placeholder='User name or Email'/>
-          <input onChange={(e)=>{setPassword(e.target.value)}} value={password} type="password" className=' border-1 rounded-[10px] text-[18px] m-[10px] p-[5px] focus:outline-none' placeholder='Password' />
-          <button type="submit" onClick={led} className='rounded-[20px] cursor-pointer p-[10px] w-[80px] bg-blue-100 text-[18px] m-[20px] focus:outline-none font-bold'>Login</button>
-          <button className='flex justify-center items-center text-gray-700 rounded-[20px] cursor-pointer bg-blue-100 p-[10px]' onClick={googleLogin}>
-            <GrGoogle className='text-xl mr-2.5'></GrGoogle>
-            <span className='font-bold'>Login with Google</span>
-          </button>
-        </div>
+    <div className='w-full h-screen bg-[url("/login.jpg")] bg-center bg-cover flex justify-center md:justify-end items-center relative'>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black opacity-20 z-0"></div>
+      {/* Content */}
+      <div className='w-[350px] h-[400px] md:w-[500px] md:h-[550px] backdrop-blur-md rounded-[30px] shadow-2xl flex flex-col justify-center items-center md:mr-[50px] z-10 relative'>
+        <input onChange={(e)=>{setUserName(e.target.value)}} value={userName} type="text" className='border-b-3 border-white text-xl md:text-2xl m-[10px] p-[5px] focus:outline-none w-[70%]' placeholder='User name or Email' />
+        <input onChange={(e)=>{setPassword(e.target.value)}} value={password} type="password" className=' border-b-3 border-white text-xl md:text-2xl m-[10px] p-[5px] focus:outline-none w-[70%]' placeholder='Password'/>
+        <button className='text-white text-right w-[70%] cursor-pointer mb-2 hover:text-gray-700 font-bold focus:outline-none md:text-[17px]' onClick={()=>navigate("/forget")}>Forgot Password?</button>
+        <button type="submit" onClick={led} className='rounded-[10px] cursor-pointer p-[10px] w-[120px] border-3 hover:border-white  bg-blue-100 border-blue-100 hover:bg-transparent text-gray-700 text-xl m-7 focus:outline-none font-extrabold hover:text-blue-100 tracking-wider'>Login</button>
+        <button className='flex justify-center items-center text-gray-700 rounded-[10px] mt-1 cursor-pointer p-[10px] border-3 hover:border-blue-100 border-transparent hover:text-blue-100' onClick={googleLogin}>
+          <FcGoogle className='text-xl md:text-3xl mr-2.5'></FcGoogle>
+          <span className='font-bold md:text-xl '>Login with Google</span>
+        </button>
+        <p className='text-white mt-5 md:text-[17px]'>Don't have an account? <button className='cursor-pointer hover:text-gray-700 focus:outline-none' onClick={()=>navigate("/register")} >Register</button></p>
       </div>
     </div>
   )

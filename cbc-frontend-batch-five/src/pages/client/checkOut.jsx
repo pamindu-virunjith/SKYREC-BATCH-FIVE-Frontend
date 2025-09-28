@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { FaMinus, FaPlus } from "react-icons/fa6";
-import { BiTrash } from 'react-icons/bi';
+// import { BiTrash } from 'react-icons/bi';
 import { useLocation } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import axios from 'axios';
@@ -67,8 +67,6 @@ function CheckOutPage() {
                 Authorization: "Bearer " + token
             }})
 
-            
-
             toast.success("Order palced successfully")
             console.log(res.data)
         }catch(e){
@@ -83,50 +81,47 @@ function CheckOutPage() {
     }
 
   return (
-    <div className='w-full h-[calc(100%-150px)] flex flex-col items-center pt-4  overflow-y-auto'>
+    <div className='w-full h-[calc(100%-180px)] md:h-[calc(100%-150px)] flex flex-col items-center pt-6 pb-24 overflow-y-auto'>
         {
             cart.map(
                 (item,index)=>{
                     return(
-                        <div key={item.productId} className='w-[600px] h-[100px] rounded-3xl  shadow-2xl flex flex-row bg-primary m-4 relative justify-center items-center'>
-                            <img src={item.image} alt="photo" className='w-[100px] h-[100px] rounded-3xl object-cover' />
-                            <div className='w-[250px] h-full flex flex-col justify-center items-start pl-4'>
-                                <h1 className='text-xl text-seondary font-semibold'>{item.name}</h1>
-                                <h1 className='text-md text-gray-600 font-semibold'>{item.productId}</h1>
-                               {
-                                    item.labledPrice > item.price ? 
-                                    <div>
-                                        <span className='text-md mx-1 text-gray-300 line-through'>{item.labledPrice.toFixed(2)}</span>
-                                        <span className='text-md mx-3 text-accent '>{item.price.toFixed(2)}</span>
-                                    </div>
-                                    : <span className='text-md mx-4 text-accent '>{item.price.toFixed(2)}</span>
-                                }
+                        <div key={item.productId} className='w-[100%] md:w-[800px] md:rounded-2xl shadow-xl bg-white flex flex-row md:items-center gap-4 p-2 mb-6 relative'>
+                            <img src={item.image} alt="photo" className='w-[120px] h-[120px] rounded-lg md:rounded-xl object-cover' />
+                            <div className="flex flex-col justify-center items-start flex-1 text-left">
+                            <h1 className="text-lg md:text-xl text-seondary font-semibold">{item.name}</h1>
+                            <h1 className="text-sm md:text-md text-gray-600">{item.productId}</h1>
+                            {
+                                item.labledPrice > item.price ? 
+                                <div className="flex flex-col md:flex-row items-start gap-2 mt-1">
+                                    <span className="text-sm md:text-base text-gray-400 line-through">{item.labledPrice.toFixed(2)}</span>
+                                    <span className="text-md md:text-lg text-accent font-semibold">{item.price.toFixed(2)}</span>
+                                </div>
+                                : <span className="text-md md:text-lg text-accent font-semibold mt-1">{item.price.toFixed(2)}</span>
+                            }
+                        </div>
+                            <div className='flex flex-col md:flex-row justify-center items-center gap-3'>
+                                <div className='flex flex-row justify-center items-center gap-3'>
+                                    <button  className='bg-accent hover:bg-seondary text-white p-1 m:p-2 rounded-md transition cursor-pointer' onClick={()=>{
+                                        changeQty(index, 1)
+                                    }}><FaPlus/></button>
+                                    <h1 className='md:text-xl text-seondary font-semibold'>{item.qty}</h1>
+                                    <button   className='bg-accent hover:bg-seondary text-white p-1 m:p-2 rounded-md transition cursor-pointer' onClick={()=>{
+                                        changeQty(index,-1)
+                                    }}><FaMinus/></button>
+                                </div>
+                                <div className="flex flex-col justify-center items-center md:items-end md:min-w-[200px]">
+                                    <h1 className="text-lg md:text-2xl text-seondary font-bold md:font-semibold md:mr-4">Rs. {(item.price * item.qty).toFixed(2)}</h1>
+                                </div> 
                             </div>
-                            <div className='w-[100px] h-full flex flex-row justify-evenly items-center'>
-                                <button  className='text-white font-bold hover:bg-seondary cursor-pointer bg-accent aspect-square p-1  rounded-[3px]' onClick={()=>{
-                                    changeQty(index, 1)
-                                }}><FaPlus/></button>
-                                <h1 className='text-xl text-seondary font-semibold'>{item.qty}</h1>
-                                <button   className='text-white font-bold hover:bg-seondary cursor-pointer bg-accent aspect-square p-1 rounded-[3px]' onClick={()=>{
-                                    changeQty(index,-1)
-                                }}><FaMinus/></button>
-                            </div>
-                            <div className='w-[200px] h-full flex flex-col justify-center items-end pr-4'>
-                                <h1 className='text-2xl text-seondary font-semibold'>Rs. {(item.price * item.qty).toFixed(2)}</h1>
-                            </div>
-                            <button className='absolute text-2xl text-red-600 hover:bg-red-600 hover:text-white cursor-pointer rounded-full p-2 right-[-40px]' onClick={
-                                ()=>{
-                                    removeFromCart(index)
-                                }
-                            }><BiTrash/></button>
-                            <div className='w-full  h-[150px] fixed bottom-0 left-0 flex items-center justify-evenly shadow-2xl'>
-                                <div className='flex flex-col'>
-                                    <input type="text" placeholder='Phone Number' className='border p-2 mb-3 rounded-[5px] w-[300px] border-gray-300 focus:outline-none placeholder-gray-400' onChange={(e)=>{setPhoneNumber(e.target.value)}} value={phoneNumber}/>
+                            <div className='w-full h-[180px] md:h-[150px] fixed bottom-0 left-0 flex flex-col md:flex-row items-center justify-evenly shadow-2xl'>
+                                <div className='flex flex-col  w-[80%] md:w-[300px]'>
+                                    <input type="text" placeholder='Phone Number' className='border p-2 mb-3 rounded-[5px]  border-gray-300 focus:outline-none placeholder-gray-400' onChange={(e)=>{setPhoneNumber(e.target.value)}} value={phoneNumber}/>
                                     <input type="text" placeholder='Address' className='border p-2 rounded-[5px] border-gray-300 focus:outline-none placeholder-gray-400' onChange={(e)=>{setAddress(e.target.value)}} value={address}/>
                                 </div>
-                                <div className='flex flex-col items-center justify-center'>
-                                    <h1 className='text-3xl font-semibold tracking-wide'>Total :<span className='text-accent pl-3'>{getTotal().toFixed(2)}</span></h1>
-                                    <button className='bg-accent text-primary py-2 px-3 mt-5 rounded-[15px] text-xl  font-bold cursor-pointer hover:bg-seondary' onClick={
+                                <div className='flex flex-row md:flex-col items-center justify-evenly w-full md:w-auto'>
+                                    <h1 className='text-2xl md:text-3xl font-semibold tracking-wide'>Total :<span className='text-accent pl-3'>{getTotal().toFixed(2)}</span></h1>
+                                    <button className='bg-accent text-primary py-2 px-3 md:mt-5 rounded-[15px] text-lg md:text-xl  font-bold cursor-pointer hover:bg-seondary' onClick={
                                         ()=>{
                                             placeOrder()
                                         }
