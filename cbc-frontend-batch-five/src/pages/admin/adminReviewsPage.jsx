@@ -73,7 +73,7 @@ function AdminReviewsPage() {
 
   return (
     <div className="p-4 md:p-8 w-full max-w-6xl mx-auto">
-      <h1 className="text-xl md:text-4xl font-bold mb-6 text-center md:text-left text-accent">
+      <h1 className="text-xl md:text-4xl font-bold mb-6 text-center  text-accent">
         Admin Review Management
       </h1>
 

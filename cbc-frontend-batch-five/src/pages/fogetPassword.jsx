@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
 function FogetPassword() {
     const [otpSent, setOtpSent] = useState(false)
@@ -8,6 +9,7 @@ function FogetPassword() {
     const [otp, setOtp] = useState("")
     const [newPassword, setNewPassword] = useState("")
     const [confirmPassord, setConfirmPassword] = useState("")
+    const navigate = useNavigate()
 
     function sendOtp(){
         if(email == ""){
@@ -33,7 +35,8 @@ function FogetPassword() {
             otp: numOtp,
             newPassword: newPassword
         }).then((response)=>{
-            toast.success("OTP verified Successfully!")
+            toast.success("password successfully changed!")
+            navigate("/login")
             console.log(response.data)
         }).catch((e)=>{
             console.log(e)

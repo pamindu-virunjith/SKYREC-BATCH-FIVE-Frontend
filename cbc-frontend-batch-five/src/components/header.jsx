@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsCart3 } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import axios from "axios";
 import AccountMenu from "./dropDownMenu";
@@ -15,17 +15,24 @@ export default function Header(){
     const[sideDrawerOpened,setSideDrawerOpened] = useState(true)
     const[user,setUser] = useState(null)
 
-     try{
-        axios.get(import.meta.env.VITE_BACKEND_URL+"/api/users/",{
-            headers:{
-                Authorization:`Bearer ${localStorage.getItem("token")}`
+     useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const res = await axios.get(
+                    `${import.meta.env.VITE_BACKEND_URL}/api/users/`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem("token")}`,
+                        },
+                    }
+                );
+                setUser(res.data);
+            } catch (err) {
+                console.error(err);
             }
-        }).then((res)=>{
-            setUser(res.data)
-        })
-    }catch(err){
-        console.log(err)
-    }
+        };
+        fetchUser();
+    }, []);
 
     function setPath(name){
         if(path.includes(name)){

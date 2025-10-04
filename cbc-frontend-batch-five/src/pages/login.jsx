@@ -70,7 +70,20 @@ function Login() {
   return (
     <div className='w-full h-screen bg-[url("/login.jpg")] bg-center bg-cover flex justify-center md:justify-end items-center relative'>
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black opacity-20 z-0"></div>
+      <div className="absolute inset-0 bg-black/20 z-0">
+        <div className='w-[50%] h-full flex-col justify-center hidden lg:flex ml-[10%]'>
+          <h1 className="text-4xl  lg:text-6xl font-bold text-seondary mb-6 leading-tight">
+            Discover Your
+            <span className="block text-accent">Perfect Product</span>
+          </h1>
+
+          {/* Subheading */}
+          <p className="text-xl md:text-xl lg:text-2xl text-seondary mb-8 leading-relaxed">
+            Shop the latest trends with confidence. Quality products, 
+            unbeatable prices, and exceptional service delivered to your door.
+          </p>
+        </div>
+      </div>
       {/* Content */}
       <div className='w-[350px] h-[400px] md:w-[500px] md:h-[550px] backdrop-blur-md rounded-[30px] shadow-2xl flex flex-col justify-center items-center md:mr-[50px] z-10 relative'>
         <input onChange={(e)=>{setUserName(e.target.value)}} value={userName} type="text" className='border-b-3 border-white text-xl md:text-2xl m-[10px] p-[5px] focus:outline-none w-[70%]' placeholder='User name or Email' />

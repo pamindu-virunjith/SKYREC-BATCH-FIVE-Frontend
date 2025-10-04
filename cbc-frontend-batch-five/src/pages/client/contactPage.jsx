@@ -28,6 +28,10 @@ const ContactPage = () => {
     .then((res)=>{
       toast.success("Email is send successfuly")
       console.log(res.data)
+      setName("")
+      setEmail("")
+      setSubject("")
+      setMessage("")
     })
     .catch((e)=>{
       console.log(e)
